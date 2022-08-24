@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Notes.Model
 {
-    internal class NotesDbContext : DbContext
+    public class NotesDbContext : DbContext
     {
         public DbSet<RawNote> Notes { get; set; }
 

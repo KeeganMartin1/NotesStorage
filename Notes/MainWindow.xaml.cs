@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Notes.Model;
 
 namespace Notes
 {
@@ -22,7 +23,7 @@ namespace Notes
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel viewModel = new MainWindowViewModel(new DataService(), new FakeDbService());
+        private MainWindowViewModel viewModel = new MainWindowViewModel(new DataService(), new DbService(new NotesDbContext()));
         public MainWindow()
         {
             InitializeComponent();

@@ -16,12 +16,23 @@ namespace Notes.Services
         }
         public IEnumerable<RawNote> GetNotes()
         {
-            throw new NotImplementedException();
+            return context.Notes;
         }
 
         public void SaveNotes(IEnumerable<RawNote> notes)
         {
-            throw new NotImplementedException();
+            foreach(var note in notes)
+            {
+                if(string.IsNullOrEmpty(note.Id))
+                {
+                    note.Id = Guid.NewGuid().ToString();
+                    context.Notes.Add(note);
+                }
+                else
+                {
+                    context.Notes.Update(note);
+                }
+            }
         }
     }
 }

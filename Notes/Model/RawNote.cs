@@ -12,10 +12,6 @@ namespace Notes.Model
 {
     public class RawNote
     {
-        public RawNote()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
         [Key]
         public string Id { get; set; }
         public string Note { get; set; }
